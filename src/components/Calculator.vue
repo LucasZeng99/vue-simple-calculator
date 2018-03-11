@@ -1,6 +1,6 @@
 <template>
   <div class="calculator">
-    <input type="text" v-model="calcInput">
+    <input type="text" v-model="calcInput" @keyup.enter="calcAnswer">
     <div class="calc-preview">
       <p>{{ calcInput }}</p>
       <p>{{ answer }}</p>
@@ -17,30 +17,21 @@ export default {
   data () {
     return {
       calcInput: '',
+      answer: null,
     }
   },
-
   methods: {
+    calcAnswer: function () {
+      if (this.postFix) {
+        this.answer = parser.default.reducePostfix(this.postFix)
+      }
+    }
   },
-  // watch: {
-  //   calcInput: (calcInput) => {
-  //     this.postFix = parser.default.toPostfix(calcInput, () => {
-  //     })
-  //     if (this.postFix) {
-  //       this.answer = parser.default.reducePostfix(this.postFix)
-  //     }
-  //   }
-  // },
   computed: {
     // answer: () => {
     postFix: function () {
       return parser.default.toPostfix(this.calcInput)
       },
-    answer: function () { 
-      if (this.postFix) {
-        return parser.default.reducePostfix(this.postFix)
-      }
-    }
     // }
   },
 

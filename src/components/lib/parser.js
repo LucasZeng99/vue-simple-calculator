@@ -1,4 +1,5 @@
-
+// 不是topostfix 的问题，问题在于postfix不健全的时候reduce要崩溃。
+// 目标： 等待健全的postfix.
 var parser = {
   test: function (x, y) {
     console.log("x: " + x + " y: " + y)
@@ -16,48 +17,40 @@ var parser = {
     }
     var output = []
     if (rawInput != null || rawInput != undefined) {
+
       for (let i in rawInput) {
         // console.log(rawInput[i],Object.keys(prec))
         if (Number.isInteger(parseInt(rawInput[i]))) {
           output.push(rawInput[i])
-
         } 
           
         else if (rawInput[i] == '(') {
           stack.push(rawInput[i])
         }
-        else if (rawInput[i] == ')') {
 
-          var stack_copy = stack
-          var topToken = stack_copy.pop()
-          var inside_count = 0
-          while (topToken != '(' && stack_copy) {
-            inside_count++
-            topToken = stack_copy.pop()
-            console.log('stack_copy reducing')
-          }
-          if (inside_count) {
-            while (inside_count > 0) {
-              inside_count--
-              topToken = stack_copy.pop()
+        else if (rawInput[i] == ')') {
+          var topToken = stack.pop()
+          for (let i = stack.length; i > 0; i--) {
+            if (topToken != '(') {
               output.push(topToken)
-              console.log("real stack reducing.")
+              topToken = stack.pop()
+              continue
+            }
+            else {
+              break
             }
           }
-          else {
-            return null
-          }
         }
-
         else {
-          while (stack && prec[stack[0]] > prec[rawInput[i]]) {
+          // console.log(prec[stack[0]], prec[rawInput[i]], stack)
+          while (stack && prec[stack[stack.length - 1]] >= prec[rawInput[i]]) {
             output.push(stack.pop())
           }
           stack.push(rawInput[i])
         }
 
       }
-      while (stack.length > 0) {
+      while (stack && stack.length > 0) {
         output.push(stack.pop())
       }
       console.log(output)
