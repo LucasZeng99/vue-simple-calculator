@@ -1,9 +1,10 @@
 <template>
   <div class="calculator">
     <input type="text" v-model="input" @keyup.enter="calcAnswer">
+
     <div class="calc-preview">
-      <p>{{ answer }}</p>
-      <p>parsedInput: {{parsedInput}}</p>
+      <p class="parse-input">parsedInput: {{parsedInput}}</p>
+      <h3 class="answer">{{ answer }}</h3>
     </div>
   </div>
 </template>
@@ -48,5 +49,17 @@ export default {
 <style scoped>
 input {
   padding: 6px;
+  margin: 0 auto;
 }
+div.calculator {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+div.calc-preview {
+  position: absolute;
+  left: 5%;
+  top: 1%;
+}
+
 </style>
