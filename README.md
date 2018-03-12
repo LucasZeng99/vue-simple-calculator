@@ -20,11 +20,19 @@ npm run build --report
 # run unit tests
 npm run unit
 
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
+## Intro
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+functionalities
+- multiple digits
+- basic operations (+-*/ and ^)
+- round brackets available
+
+todo
+- decimal input
+- an otaku style
+
+---
+feel free to talk with me (@w @*)
+
+--Lucas Zeng
