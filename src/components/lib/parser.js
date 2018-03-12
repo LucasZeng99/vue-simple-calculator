@@ -14,7 +14,7 @@ var parser = {
     while (i < rawInput.length) {
       var j = 1
       var num = [rawInput[i]]
-      // console.log(i + j < rawInput.length,!isNaN(parseInt(rawInput[i])), !isNaN(parseInt(rawInput[i+j])))
+
       while (i + j < rawInput.length && !isNaN(parseInt(rawInput[i])) && !isNaN(parseInt(rawInput[i+j]))) {
         num = num.concat(rawInput[i+j])
         j++
@@ -24,7 +24,10 @@ var parser = {
     } 
     return output
   },
-
+  /**
+   * @param {string} rawInput
+   * @returns {string | Error}
+   */
   toPostfix: (rawInput) => {
     var stack = []
     var prec = {
@@ -41,7 +44,6 @@ var parser = {
     if (rawInput != null || rawInput != undefined) {
 
       for (let i in rawInput) {
-        console.log(rawInput[i])
         if (Number.isInteger(parseInt(rawInput[i]))) {
           output.push(rawInput[i])
         } 
@@ -50,15 +52,16 @@ var parser = {
         }
         else if (rawInput[i] == ')') {
           var topToken = stack.pop()
+          
           for (let i = stack.length; i > 0; i--) {
-            if (topToken != '(') {
-              output.push(topToken)
-              topToken = stack.pop()
-              continue
-            }
-            else {
-              break
-            }
+              if (topToken != '(') {
+                output.push(topToken)
+                topToken = stack.pop()
+                continue
+              }
+              else {
+                break
+              }
           }
         }
         else {
@@ -78,6 +81,13 @@ var parser = {
       return null
     }
   },
+
+  /**
+   * @param {string} rawPostfix formatted postfix
+   * @returns {Number} calculated answer
+   * 
+   * need more robust improvement.
+   */
   reducePostfix: (rawPostfix) => {
     var postfix = rawPostfix
     var prec = {
@@ -94,10 +104,12 @@ var parser = {
         postfix[i] = parseInt(postfix[i])
       }
       else if (!Object.keys(prec).includes(postfix[i])) {
-        return "your input might be wrong."
+        return "your input might be wrong. (~)_(~) =33"
       }
     }
+    var last_fix = []
     while (postfix.length > 1) {
+      last_fix = postfix.slice()
       for (let i in postfix) {
         if (postfix[i] in prec) {
 
@@ -128,13 +140,15 @@ var parser = {
           }
         }
       }
+      if (last_fix.length==postfix.length && last_fix.every((v,i)=> v === postfix[i])) {
+        return "your input might be wrong.  (@ v  @) ==33"
+      }
     }
     if (!(postfix.length == 1) || !isNumber(postfix[0])) {
-      return "your input might be wrong."
+      return "your input might be wrong. (^ v ^!) =33"
     }
     return postfix[0]
   },
-    
 
 }
 

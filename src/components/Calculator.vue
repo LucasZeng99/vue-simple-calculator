@@ -3,8 +3,8 @@
     <input type="text" v-model="input" @keyup.enter="calcAnswer">
 
     <div class="calc-preview">
-      <p class="parse-input">parsedInput: {{parsedInput}}</p>
-      <h3 class="answer">{{ answer }}</h3>
+      <p class="parse-input">Postfix string: {{parsedInput}}</p>
+      <p class="answer">{{ answer }}</p>
     </div>
   </div>
 </template>
@@ -48,8 +48,16 @@ export default {
 
 <style scoped>
 input {
-  padding: 6px;
+  display: block;
+  padding: 10px;
+  font-size: 25px;
   margin: 0 auto;
+  margin-top: 100px;
+  width: 80%;
+  border: 2px solid violet;
+}
+input:focus {
+  outline: none;
 }
 div.calculator {
   max-width: 600px;
@@ -57,9 +65,23 @@ div.calculator {
 }
 
 div.calc-preview {
-  position: absolute;
-  left: 5%;
-  top: 1%;
+  font-size: 22px;
+  display: block;
 }
+
+p.answer {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+}
+
+p.parse-input {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+
 
 </style>
