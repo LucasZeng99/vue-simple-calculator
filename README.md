@@ -34,9 +34,10 @@ functionalities
 todo
 - decimal input
 - an otaku style
+- constantly changing theme, background, and color.
 ---
 #### background from [456's pixiv artwork](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=67680937), thanks for your inspiration.
 
-if you find anything to improve, feel free to talk with me (@w @*)
+This is a simple calculator, if you find anything to improve, feel free to talk to me (@w @*)
 
 --Lucas Zeng
