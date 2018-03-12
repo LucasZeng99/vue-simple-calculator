@@ -23,7 +23,7 @@ npm run unit
 ```
 ## Intro
 here is a simple gif:
-<img src="http://lucalculator.s3-website-us-west-2.amazonaws.com/static/image/calculator_screenshot.gif" height="360" />
+<img src="http://lucalculator.s3-website-us-west-2.amazonaws.com/static/image/calculator_screenshot.gif"/>
 
 
 functionalities
