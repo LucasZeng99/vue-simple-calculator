@@ -3,8 +3,11 @@
     <input type="text" v-model="input" @keyup.enter="calcAnswer">
 
     <div class="calc-preview">
-      <p class="parse-input">Postfix string: {{parsedInput}}</p>
-      <p class="answer">{{ answer }}</p>
+      <p class="formatted-input">formatted string: {{parsedInput}}</p>
+      <p class="postfix">postfixed string: {{ postFix }}</p><br>
+      <div class="answer"><p>answer: </p>
+        <p id="answer">{{ answer }}</p>
+        </div>
     </div>
   </div>
 </template>
@@ -52,7 +55,7 @@ input {
   padding: 10px;
   font-size: 25px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 200px;
   width: 80%;
   border: 2px solid violet;
 }
@@ -60,16 +63,23 @@ input:focus {
   outline: none;
 }
 div.calculator {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
 div.calc-preview {
+  margin-top: 40px;
   font-size: 22px;
   display: block;
+  color: rgb(82, 41, 36);
+  background-color: rgba(247, 218, 194, 0.849);
 }
 
-p.answer {
+p{
+  display: inline-block;
+}
+
+.answer {
   display: inline-block;
   position: relative;
   left: 50%;
@@ -77,11 +87,23 @@ p.answer {
   font-size: 30px;
 }
 
-p.parse-input {
+#answer {
+  color: #a84bff;
+}
+p.formatted-input {
   position: absolute;
   top: 0%;
   left: 0%;
+  padding: 10px;
+  background-color: rgba(194, 175, 160, 0.486);
 }
 
+p.postfix {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+}
 
 </style>

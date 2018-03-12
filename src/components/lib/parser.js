@@ -84,7 +84,7 @@ var parser = {
 
   /**
    * @param {string} rawPostfix formatted postfix
-   * @returns {Number} calculated answer
+   * @returns {Number | string} calculated answer
    * 
    * need more robust improvement.
    */
@@ -96,8 +96,6 @@ var parser = {
       '-': 2,
       '+': 2,
       '^': 4,
-      '(': 1,
-      ')': 1,
     }
     for (let i in postfix) {
       if (!isNaN(parseInt(postfix[i]))) {
@@ -138,6 +136,7 @@ var parser = {
             postfix.splice(i-1, 2)
             break
           }
+
         }
       }
       if (last_fix.length==postfix.length && last_fix.every((v,i)=> v === postfix[i])) {

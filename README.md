@@ -22,6 +22,9 @@ npm run unit
 
 ```
 ## Intro
+here is a simple gif:
+<img src="http://lucalculator.s3-website-us-west-2.amazonaws.com/static/image/calculator_screenshot.gif" height="360" />
+
 
 functionalities
 - multiple digits
@@ -31,8 +34,9 @@ functionalities
 todo
 - decimal input
 - an otaku style
-
 ---
-feel free to talk with me (@w @*)
+#### background from [456's pixiv artwork](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=67680937), thanks for your inspiration.
+
+if you find anything to improve, feel free to talk with me (@w @*)
 
 --Lucas Zeng
