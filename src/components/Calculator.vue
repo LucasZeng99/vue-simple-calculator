@@ -4,10 +4,10 @@
 
     <div class="calc-preview">
       <p class="formatted-input">formatted string: {{parsedInput}}</p>
-      <p class="postfix">postfixed string: {{ postFix }}</p><br>
-      <div class="answer"><p>answer: </p>
-        <p id="answer">{{ answer }}</p>
+      <div class="answer"><p>answer:  </p>
+        <p id="answer" v-if="answer">{{ answer }}</p>
         </div>
+      <p class="postfix">postfixed string: {{ postFixString }}</p>
     </div>
   </div>
 </template>
@@ -43,6 +43,11 @@ export default {
     postFix: function () {
       this.answer = null
       return parser.toPostfix(parser.parseRawInput(this.input))
+    },
+    postFixString: function () {
+      var postfix = this.postFix
+      if (postfix) return postfix.toString()
+      else return null
       },
   },
 
@@ -70,6 +75,7 @@ div.calculator {
 div.calc-preview {
   margin-top: 40px;
   font-size: 22px;
+  padding: 15px;
   display: block;
   color: rgb(82, 41, 36);
   background-color: rgba(247, 218, 194, 0.849);
@@ -77,6 +83,7 @@ div.calc-preview {
 
 p{
   display: inline-block;
+  margin: 20px 0;
 }
 
 .answer {
@@ -85,11 +92,28 @@ p{
   left: 50%;
   transform: translateX(-50%);
   font-size: 30px;
+  transition: 1s;
 }
 
-#answer {
+p#answer {
   color: #a84bff;
+  animation-duration: 1s;
+  animation-name: slide;
 }
+@keyframes slide {
+  0% {
+    opacity: 0;
+    position: relative;
+    top: 20px;
+  }
+
+  100% {
+    opacity: 100%;
+    position: relative;
+    top: 0;
+  }
+}
+
 p.formatted-input {
   position: absolute;
   top: 0%;
@@ -99,11 +123,12 @@ p.formatted-input {
 }
 
 p.postfix {
-  display: inline-block;
+  display: block;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   font-size: 30px;
+  word-wrap: break-word;
 }
 
 </style>

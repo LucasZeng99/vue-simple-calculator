@@ -21,6 +21,7 @@ export default {
 body {
   background-image: url("/static/image/in_the_rain-min.png");
   background-position: center;
+  background-attachment: fixed;
   background-size: cover;
 }
 </style>
