@@ -2,7 +2,6 @@
   <div id="app">
     <router-view/>
     <div class="footer">
-        <a href="https://lucaszeng99.github.io/blog/" target="_blank">blog</a>
         <a href="https://github.com/LucasZeng99/vue-simple-calculator" target="_blank">Visit on Github</a>
     </div>
   </div>
