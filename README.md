@@ -14,12 +14,6 @@ npm run dev
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
 ```
 ## Intro
 here is a simple gif:
@@ -32,7 +26,7 @@ functionalities
 - round brackets available
 
 todo
-- decimal input
+- [x] decimal input
 - an otaku style
 - constantly changing theme, background, and color.
 ---
