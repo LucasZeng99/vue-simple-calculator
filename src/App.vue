@@ -18,7 +18,6 @@ export default {
 #app {
   font-family: 'Lato', 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: #fff;
   margin-top: 60px;
 }
