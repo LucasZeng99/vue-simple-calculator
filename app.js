@@ -10,8 +10,8 @@ app.get('/', (req,res) => {
     res.send(content)
 })
 
-var port = process.env.PORT || 80
 
-app.listen(port, () => {
-    console.log('hello world. server running on port '+port)
+
+app.listen(80, () => {
+    console.log('hello world. server running on port 80')
 })
