@@ -10,6 +10,8 @@ app.get('/', (req,res) => {
     res.send(content)
 })
 
-app.listen(3000, () => {
-    console.log('hello world. server running on port 3000')
+var port = process.env.PORT || 80
+
+app.listen(port, () => {
+    console.log('hello world. server running on port '+port)
 })
