@@ -10,8 +10,6 @@ app.get('/', (req,res) => {
     res.send(content)
 })
 
-
-
 app.listen(80, () => {
-    console.log('hello world. server running on port 80')
+    console.log('hello world.')
 })
